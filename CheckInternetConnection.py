@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import os
 from dotenv import load_dotenv
+from LineNotification import line_noti
 
 #from webdriver_manager.chrome import ChromeDriverManager
 #https://selenium-python.readthedocs.io/locating-elements.html
@@ -97,13 +98,5 @@ def reconnect_internet():
     except:
         return
 
-def line_noti(token, message):
-    try:
-        url = 'https://notify-api.line.me/api/notify'
-        headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+token}
-
-        req = requests.post(url, headers=headers, data = {'message':message})
-    except:
-        return
-
 run()
+#line_noti(line_token,"ทดสอบ")
